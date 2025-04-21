@@ -9,6 +9,7 @@ const App = () => {
         </h1>
         <h2>Parcel React App</h2>
         <h3>This is a bit smaller text</h3>
+        <h4>A bit more smaller text</h4>
         <Button />
       </>
     );
