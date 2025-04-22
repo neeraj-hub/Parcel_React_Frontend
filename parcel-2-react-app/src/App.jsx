@@ -1,33 +1,39 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Headline from "./components/Headline";
+import Navbar from "./components/NavBar";
+import Products from "./components/Products";
+import Featured from "./components/Featured";
+import NewProducts from "./components/NewProducts";
+import Users from "./components/Users";
 
-const Home = () =>{
-    const navigate = useNavigate();
-
-    return(
-        <>
-        <h1>Home</h1>
-        <button onClick={() => navigate('/headline')}>Go to headline</button> 
-        </>
-    )
-}
-const Base = () => {
-    return(
-        <>
-        <h1>Base</h1>
-        </>
-    )
-}
+const Home = () => {
+  return (
+    <>
+      <h1>Home Page</h1>
+      <p>This is the home page.</p>
+    </>
+  );
+};
+const About = () => {
+  return (
+    <>
+      <h1>About Page</h1>
+      <p>This is the about page.</p>
+    </>
+  );
+};
 export default function App() {
-    return(
-        <>
-        <h1>Second react app with parcel</h1>
-            <Routes>
-                <Route path="/" element={<Base />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/headline" element={<Headline />} />
-            </Routes>        
-        </>
-        
-    )
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="home" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="products" element={<Products />}>
+          <Route path="featured" element={<Featured />} />
+          <Route path="new" element={<NewProducts />} />
+        </Route>
+        <Route path="users/:userId" element={<Users />} />
+      </Routes>
+    </>
+  );
 }
